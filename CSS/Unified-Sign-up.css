@@ -1,0 +1,253 @@
+/* File: Unified-Sign-up.css 
+    Styles for Multi-Vendor Registration
+*/
+
+:root {
+    --main_color: #ff8716;
+    --p_color: #555;
+    --bg_color: #f8f9fa;
+    --border_color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--bg_color);
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1100px;
+}
+
+header {
+    background: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border_color);
+}
+
+.top_header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img { width: 130px; }
+
+.btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    background: var(--main_color);
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover { background: #e67600; }
+
+.signup_page {
+    padding: 60px 0;
+    min-height: calc(100vh - 80px);
+}
+
+.form_container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form_header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.form_header h1 { font-size: 28px; color: #222; }
+
+.user_type_toggle {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.toggle_option { flex: 1; cursor: pointer; }
+.toggle_option input { display: none; }
+
+.option_card {
+    border: 2px solid #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.3s;
+    background: #fff;
+}
+
+.option_card i { font-size: 24px; color: #ccc; margin-bottom: 8px; display: block; }
+.option_card span { font-weight: 700; color: #888; }
+
+.toggle_option input:checked + .option_card {
+    border-color: var(--main_color);
+    background: #fff9f4;
+}
+
+.toggle_option input:checked + .option_card i,
+.toggle_option input:checked + .option_card span {
+    color: var(--main_color);
+}
+
+.inputs_grid { display: flex; flex-wrap: wrap; gap: 20px; }
+.input_group { flex: 1; min-width: calc(50% - 20px); display: flex; flex-direction: column; gap: 8px; }
+.full_width { min-width: 100%; }
+
+.input_group label { font-weight: 600; font-size: 14px; color: #444; }
+.input_group label i { color: var(--main_color); margin-right: 5px; }
+
+.input_group input {
+    padding: 13px;
+    border: 1px solid var(--border_color);
+    border-radius: 8px;
+    outline: none;
+    background: #fafafa;
+}
+
+.input_group input:focus {
+    border-color: var(--main_color);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(255, 135, 22, 0.1);
+}
+
+.vendor_fields_box {
+    background: #fff8f2;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px dashed var(--main_color);
+    margin: 10px 0;
+    animation: fadeIn 0.4s ease;
+}
+
+
+.vendor_grid { display: flex; gap: 20px; }
+
+.form_footer { margin-top: 30px; text-align: center; }
+.terms { display: block; margin-bottom: 20px; font-size: 13px; color: #777; }
+.btn_register { width: 100%; justify-content: center; padding: 15px; font-size: 18px; }
+
+.login_link { margin-top: 20px; font-size: 14px; }
+.login_link a { color: var(--main_color); font-weight: bold; text-decoration: none; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .input_group { min-width: 100%; }
+    .vendor_grid, .user_type_toggle { flex-direction: column; }
+}
+
+
+
+
+/* --- إضافة أنيميشن احترافي للأزرار (Advanced Animation) --- */
+
+/* الحركة الأساسية للأزرار */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+/* تأثير اللمعان (Shine Effect) عند الوقوف بالماوس */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.5s;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.03); /* ارتفاع وتكبير بسيط */
+    box-shadow: 0 8px 20px rgba(255, 135, 22, 0.4);
+    letter-spacing: 0.5px; /* تباعد بسيط للحروف يعطي فخامة */
+}
+
+/* حركة الأيقونة داخل الزر */
+.btn i {
+    transition: all 0.3s ease;
+}
+
+.btn:hover i {
+    transform: rotate(15deg) scale(1.2); /* تدوير وتكبير الأيقونة */
+}
+
+/* أنيميشن لبطاقات الاختيار (Buyer / Seller) */
+.toggle_option {
+    transition: transform 0.3s ease;
+}
+
+.toggle_option:hover {
+    transform: translateY(-5px);
+}
+
+.option_card {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* تأثير النبض البسيط عند الوقوف على البطاقة */
+@keyframes pulse-orange {
+    0% { box-shadow: 0 0 0 0 rgba(255, 135, 22, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 135, 22, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 135, 22, 0); }
+}
+
+.toggle_option input:checked + .option_card {
+    animation: pulse-orange 1.5s infinite;
+    border-color: var(--main_color);
+}
+
+/* تأثير الروابط السفلية */
+.login_link a {
+    position: relative;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.login_link a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--main_color);
+    transition: width 0.3s ease;
+}
+
+.login_link a:hover::after {
+    width: 100%;
+}

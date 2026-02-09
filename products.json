@@ -1,0 +1,59 @@
+[
+  {
+    "id": 0,
+    "img": "img/product/0.png",
+    "name": "SAMSUNG 55 Inch UHD 4K Smart TV With Receiver",
+    "price": 350,
+    "catetory":"electronics"
+  },
+  {
+    "id": 1,
+    "img": "img/product/1.png",
+    "name": "Redmi 13C Dual SIM with 6GB RAM",
+    "price": 280,
+    "catetory":"mobiles"
+  },
+  {
+    "id": 2,
+    "img": "img/product/2.png",
+    "name": "Dell Laptop Latitude 5530 Core i7-1255U 8GB SSD",
+    "price": 400,
+    "catetory":"electronics"
+  },
+  {
+    "id": 3,
+    "img": "img/product/3.png",
+    "name": "Canon EOS RP Mirrorless Camera",
+    "price": 530,
+    "catetory":"electronics"
+  },
+  {
+    "id": 4,
+    "img": "img/product/4.png",
+    "name": "OPPO A18 128GB 4GB Glowing Black",
+    "price": 250,
+    "catetory":"mobiles"
+  },
+  {
+    "id": 5,
+    "img": "img/product/5.png",
+    "name": "Samsung 27-Inch G55C Odyssey QHD 4k",
+    "price": 280,
+    "catetory":"electronics"
+  },
+  {
+    "id": 6,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"mobiles"
+  },
+  {
+    "id": 7,
+    "img": "img/product/7.png",
+    "name": "HP Victus Gaming Laptop 8RAM SSD",
+    "price": 300,
+    "old_price": 370,
+    "catetory":"electronics"
+  }
+]

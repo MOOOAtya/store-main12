@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Multi-Vendor Marketplace</title>
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/Unified-Sign-up.css">
+</head>
+<body>
+
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="index.html" class="logo"> <img src="img/logo.png" alt="Logo"></a>
+                <div class="btns">
+                    <a href="index.html" class="btn">Back to Home <i class="fa-solid fa-house"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="signup_page">
+        <div class="container">
+            <div class="form_container">
+                <div class="form_header">
+                    <h1>Create Your Account</h1>
+                    <p>Select your account type to continue</p>
+                </div>
+
+                <form id="unifiedSignupForm">
+                    <div class="user_type_toggle">
+                        <label class="toggle_option">
+                            <input type="radio" name="user_role" value="customer" checked onchange="toggleFields()">
+                            <div class="option_card">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>I am a Buyer</span>
+                            </div>
+                        </label>
+                        <label class="toggle_option">
+                            <input type="radio" name="user_role" value="vendor" onchange="toggleFields()">
+                            <div class="option_card">
+                                <i class="fa-solid fa-shop"></i>
+                                <span>I am a Seller</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="inputs_grid">
+                        <div class="input_group full_width">
+                            <label><i class="fa-solid fa-user"></i> Full Name</label>
+                            <input type="text" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="input_group">
+                            <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+                            <input type="email" name="email" placeholder="example@mail.com" required>
+                        </div>
+
+                        <div class="input_group">
+                            <label><i class="fa-solid fa-phone"></i> Phone Number</label>
+                            <input type="text" name="phone" placeholder="+123456789" required>
+                        </div>
+
+                        <div id="customer_fields" class="full_width inputs_grid">
+                            <div class="input_group">
+                                <label><i class="fa-solid fa-city"></i> Your City</label>
+                                <input type="text" name="customerCity" placeholder="e.g. Cairo">
+                            </div>
+                            <div class="input_group">
+                                <label><i class="fa-solid fa-location-dot"></i> Shipping Address</label>
+                                <input type="text" name="customerAddress" placeholder="Street / Building No.">
+                            </div>
+                        </div>
+
+                        <div id="vendor_extra_fields" class="vendor_fields_box full_width" style="display: none;">
+                            <div class="vendor_grid">
+                                <div class="input_group">
+                                    <label><i class="fa-solid fa-store"></i> Store Name</label>
+                                    <input type="text" name="storeName" placeholder="Enter your business name">
+                                </div>
+                                <div class="input_group">
+                                    <label><i class="fa-solid fa-map-location-dot"></i> Store City</label>
+                                    <input type="text" name="storeCity" placeholder="City of operations">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input_group">
+                            <label><i class="fa-solid fa-lock"></i> Password</label>
+                            <input type="password" name="password" placeholder="Min. 8 characters" required>
+                        </div>
+
+                        <div class="input_group">
+                            <label><i class="fa-solid fa-shield-halved"></i> Confirm Password</label>
+                            <input type="password" name="confirm_password" placeholder="Repeat password" required>
+                        </div>
+                    </div>
+
+                    <div class="form_footer">
+                        <label class="terms">
+                            <input type="checkbox" required> 
+                            <span>I agree to the <a>Terms</a> & <a>Privacy Policy</a></span>
+                        </label>
+                        <button type="submit" class="btn_register btn">Register Now <i class="fa-solid fa-user-plus"></i></button>
+                        <p class="login_link">Already have an account? <a href="#">Login here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleFields() {
+            const role = document.querySelector('input[name="user_role"]:checked').value;
+            const vendorFields = document.getElementById('vendor_extra_fields');
+            const customerFields = document.getElementById('customer_fields');
+            
+            if (role === 'vendor') {
+                vendorFields.style.display = 'block';
+                customerFields.style.display = 'none';
+                // تفعيل "مطلوب" لبيانات التاجر وتعطيلها للمشتري
+                vendorFields.querySelectorAll('input').forEach(i => i.setAttribute('required', 'true'));
+                customerFields.querySelectorAll('input').forEach(i => i.removeAttribute('required'));
+            } else {
+                vendorFields.style.display = 'none';
+                customerFields.style.display = 'flex';
+                // تفعيل "مطلوب" لبيانات المشتري وتعطيلها للتاجر
+                vendorFields.querySelectorAll('input').forEach(i => i.removeAttribute('required'));
+                customerFields.querySelectorAll('input').forEach(i => i.setAttribute('required', 'true'));
+            }
+        }
+        // تشغيل الدالة مرة عند التحميل لضمان الحالة الابتدائية
+        window.onload = toggleFields;
+
+        
+
+
+
+
+
+
+
+        const scriptURL = 'ضع_رابط_APPS_SCRIPT_الخاص_بك_هنا';
+const form = document.getElementById('unifiedSignupForm');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    
+    // إظهار رسالة انتظار للمستخدم
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = "Processing... <i class='fa-solid fa-spinner fa-spin'></i>";
+    submitBtn.disabled = true;
+
+    // تجهيز البيانات لإرسالها
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: new FormData(form)
+    })
+    .then(response => {
+        submitBtn.innerHTML = "Success! <i class='fa-solid fa-check'></i>";
+        submitBtn.style.background = "#28a745"; // تغيير اللون للأخضر عند النجاح
+        
+        alert('Account created successfully! Welcome to our marketplace.');
+        form.reset();
+        
+        // إعادة الزر لحالته الطبيعية بعد 3 ثوانٍ
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            submitBtn.style.background = "var(--main_color)";
+            window.location.href = "index.html"; // توجيه المستخدم للرئيسية
+        }, 3000);
+    })
+    .catch(error => {
+        console.error('Error!', error.message);
+        submitBtn.innerHTML = "Error! Try again";
+        submitBtn.style.background = "#dc3545";
+        submitBtn.disabled = false;
+    });
+});
+    </script>
+</body>
+</html>
