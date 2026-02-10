@@ -55,5 +55,48 @@
     "price": 300,
     "old_price": 370,
     "catetory":"electronics"
+  },
+  {
+    "id": 8,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"mobiles"
+  },
+  {
+    "id": 9,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"electronics"
+  },
+  {
+    "id": 10,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"mobiles"
+  },
+  {
+    "id": 11,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"electronics"
+  },
+  {
+    "id": 12,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"mobiles"
+  },
+  {
+    "id": 13,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"electronics"
   }
 ]
+
