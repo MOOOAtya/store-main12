@@ -1245,6 +1245,87 @@ color: var(--color_heading);
 
 
 
+/* Checkout Personal Info Styles */
+.checkout .input_info {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.checkout .input_info h1 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--main_color);
+    width: max-content;
+    padding-bottom: 5px;
+}
+
+.checkout .inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.checkout .input_group {
+    width: 48%; /* يجعل كل حقلين بجانب بعضهما */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkout .input_group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color_heading);
+}
+
+.checkout .input_group input {
+    background: var(--bg_color);
+    padding: 12px 15px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.checkout .input_group input:focus {
+    border-color: var(--main_color);
+    background: #fff;
+}
+
+/* Responsive for Inputs */
+@media (max-width: 768px) {
+    .checkout .input_group {
+        width: 100%; /* حقل واحد في السطر في الشاشات الصغيرة */
+    }
+}
+.checkout .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    flex-direction: row-reverse; /* لجعل ملخص الطلب على اليمين والبيانات على اليسار */
+}
+
+.checkout .ordersummary {
+    width: 35%;
+}
+
+.checkout .input_info {
+    width: 65%;
+    margin-top: 0; /* إلغاء الهامش العلوي ليتساوى مع الملخص */
+}
+
+@media (max-width: 991px) {
+    .checkout .container {
+        flex-direction: column;
+    }
+    .checkout .ordersummary, .checkout .input_info {
+        width: 100%;
+    }
+}
+
+
 
 
 
