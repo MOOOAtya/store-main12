@@ -34,12 +34,26 @@
     "price": 250,
     "catetory":"mobiles"
   },
+   {
+    "id": 3,
+    "img": "img/product/3.png",
+    "name": "Canon EOS RP Mirrorless Camera",
+    "price": 530,
+    "catetory":"electronics"
+  },
   {
     "id": 5,
     "img": "img/product/5.png",
     "name": "Samsung 27-Inch G55C Odyssey QHD 4k",
     "price": 280,
     "catetory":"electronics"
+  },
+  {
+    "id": 6,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"mobiles"
   },
   {
     "id": 6,
@@ -56,4 +70,12 @@
     "old_price": 370,
     "catetory":"electronics"
   }
+    {
+    "id": 6,
+    "img": "img/product/6.png",
+    "name": "Infinix Smart (Galaxy White, 4GB RAM, 64GB Storage)",
+    "price": 280,
+    "catetory":"mobiles"
+  },
 ]
+
