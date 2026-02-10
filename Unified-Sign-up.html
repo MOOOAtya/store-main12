@@ -21,166 +21,127 @@
         </div>
     </header>
 
-    <section class="signup_page">
-        <div class="container">
-            <div class="form_container">
-                <div class="form_header">
-                    <h1>Create Your Account</h1>
-                    <p>Select your account type to continue</p>
+    <main class="auth_wrapper">
+        <div class="auth_system_container">
+            <div class="auth_tabs">
+                <div class="tab_item active" id="tab_signup" onclick="toggleAuth('signup')">
+                    <i class="fa-solid fa-user-plus"></i> Sign Up
                 </div>
+                <div class="tab_item" id="tab_login" onclick="toggleAuth('login')">
+                    <i class="fa-solid fa-right-to-bracket"></i> Log In
+                </div>
+            </div>
 
-                <form id="unifiedSignupForm">
+            <div class="auth_panels_wrapper">
+                <div id="signup_panel" class="auth_panel active">
+                    <div class="form_header">
+                        <h1>Create Account</h1>
+                    </div>
+
                     <div class="user_type_toggle">
                         <label class="toggle_option">
-                            <input type="radio" name="user_role" value="customer" checked onchange="toggleFields()">
+                            <input type="radio" name="user_type" value="buyer" checked onchange="toggleVendorFields()">
                             <div class="option_card">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                <span>I am a Buyer</span>
+                                <i class="fa-solid fa-shopping-bag"></i>
+                                <span>Buyer</span>
                             </div>
                         </label>
                         <label class="toggle_option">
-                            <input type="radio" name="user_role" value="vendor" onchange="toggleFields()">
+                            <input type="radio" name="user_type" value="vendor" onchange="toggleVendorFields()">
                             <div class="option_card">
-                                <i class="fa-solid fa-shop"></i>
-                                <span>I am a Seller</span>
+                                <i class="fa-solid fa-store"></i>
+                                <span>Seller</span>
                             </div>
                         </label>
                     </div>
 
-                    <div class="inputs_grid">
-                        <div class="input_group full_width">
+                    <form id="signupForm" class="inputs_grid">
+                        <div class="input_group">
                             <label><i class="fa-solid fa-user"></i> Full Name</label>
-                            <input type="text" name="fullName" placeholder="Enter your full name" required>
+                            <input type="text" name="Name" placeholder="Enter your name" required>
                         </div>
-
                         <div class="input_group">
-                            <label><i class="fa-solid fa-envelope"></i> Email Address</label>
-                            <input type="email" name="email" placeholder="example@mail.com" required>
+                            <label><i class="fa-solid fa-envelope"></i> Email</label>
+                            <input type="email" name="Email" placeholder="example@mail.com" required>
+                        </div>
+                        <div class="input_group full_width">
+                            <label><i class="fa-solid fa-lock"></i> Password</label>
+                            <input type="password" name="Password" placeholder="••••••••" required>
                         </div>
 
-                        <div class="input_group">
-                            <label><i class="fa-solid fa-phone"></i> Phone Number</label>
-                            <input type="text" name="phone" placeholder="+123456789" required>
-                        </div>
-
-                        <div id="customer_fields" class="full_width inputs_grid">
-                            <div class="input_group">
-                                <label><i class="fa-solid fa-city"></i> Your City</label>
-                                <input type="text" name="customerCity" placeholder="e.g. Cairo">
-                            </div>
-                            <div class="input_group">
-                                <label><i class="fa-solid fa-location-dot"></i> Shipping Address</label>
-                                <input type="text" name="customerAddress" placeholder="Street / Building No.">
-                            </div>
-                        </div>
-
-                        <div id="vendor_extra_fields" class="vendor_fields_box full_width" style="display: none;">
+                        <div id="vendor_fields" class="vendor_fields_box full_width" style="display: none;">
                             <div class="vendor_grid">
                                 <div class="input_group">
-                                    <label><i class="fa-solid fa-store"></i> Store Name</label>
-                                    <input type="text" name="storeName" placeholder="Enter your business name">
+                                    <label><i class="fa-solid fa-shop"></i> Store Name</label>
+                                    <input type="text" name="StoreName" placeholder="My Awesome Store">
                                 </div>
                                 <div class="input_group">
-                                    <label><i class="fa-solid fa-map-location-dot"></i> Store City</label>
-                                    <input type="text" name="storeCity" placeholder="City of operations">
+                                    <label><i class="fa-solid fa-location-dot"></i> Business Address</label>
+                                    <input type="text" name="Address" placeholder="Street, City">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="input_group">
+                        <button type="submit" class="btn btn_register">Sign Up Now</button>
+                    </form>
+                </div>
+
+                <div id="login_panel" class="auth_panel">
+                    <div class="form_header">
+                        <h1>Welcome Back</h1>
+                    </div>
+                    <form id="loginForm" class="inputs_grid">
+                        <div class="input_group full_width">
+                            <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+                            <input type="email" name="LoginEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="input_group full_width">
                             <label><i class="fa-solid fa-lock"></i> Password</label>
-                            <input type="password" name="password" placeholder="Min. 8 characters" required>
+                            <input type="password" name="LoginPassword" placeholder="Enter password" required>
                         </div>
-
-                        <div class="input_group">
-                            <label><i class="fa-solid fa-shield-halved"></i> Confirm Password</label>
-                            <input type="password" name="confirm_password" placeholder="Repeat password" required>
+                        <button type="submit" class="btn btn_register">Login</button>
+                        <div class="login_link">
+                            <a href="#">Forgot your password?</a>
                         </div>
-                    </div>
-
-                    <div class="form_footer">
-                        <label class="terms">
-                            <input type="checkbox" required> 
-                            <span>I agree to the <a>Terms</a> & <a>Privacy Policy</a></span>
-                        </label>
-                        <button type="submit" class="btn_register btn">Register Now <i class="fa-solid fa-user-plus"></i></button>
-                        <p class="login_link">Already have an account? <a href="#">Login here</a></p>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <script>
-        function toggleFields() {
-            const role = document.querySelector('input[name="user_role"]:checked').value;
-            const vendorFields = document.getElementById('vendor_extra_fields');
-            const customerFields = document.getElementById('customer_fields');
-            
-            if (role === 'vendor') {
-                vendorFields.style.display = 'block';
-                customerFields.style.display = 'none';
-                // تفعيل "مطلوب" لبيانات التاجر وتعطيلها للمشتري
-                vendorFields.querySelectorAll('input').forEach(i => i.setAttribute('required', 'true'));
-                customerFields.querySelectorAll('input').forEach(i => i.removeAttribute('required'));
+        function toggleAuth(type) {
+            const signupPanel = document.getElementById('signup_panel');
+            const loginPanel = document.getElementById('login_panel');
+            const tabSignup = document.getElementById('tab_signup');
+            const tabLogin = document.getElementById('tab_login');
+
+            if (type === 'login') {
+                tabSignup.classList.remove('active');
+                tabLogin.classList.add('active');
+                signupPanel.classList.remove('active');
+                setTimeout(() => {
+                    loginPanel.classList.add('active');
+                }, 50);
             } else {
-                vendorFields.style.display = 'none';
-                customerFields.style.display = 'flex';
-                // تفعيل "مطلوب" لبيانات المشتري وتعطيلها للتاجر
-                vendorFields.querySelectorAll('input').forEach(i => i.removeAttribute('required'));
-                customerFields.querySelectorAll('input').forEach(i => i.setAttribute('required', 'true'));
+                tabLogin.classList.remove('active');
+                tabSignup.classList.add('active');
+                loginPanel.classList.remove('active');
+                setTimeout(() => {
+                    signupPanel.classList.add('active');
+                }, 50);
             }
         }
-        // تشغيل الدالة مرة عند التحميل لضمان الحالة الابتدائية
-        window.onload = toggleFields;
 
-        
-
-
-
-
-
-
-
-        const scriptURL = 'ضع_رابط_APPS_SCRIPT_الخاص_بك_هنا';
-const form = document.getElementById('unifiedSignupForm');
-
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    
-    // إظهار رسالة انتظار للمستخدم
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = "Processing... <i class='fa-solid fa-spinner fa-spin'></i>";
-    submitBtn.disabled = true;
-
-    // تجهيز البيانات لإرسالها
-    fetch(scriptURL, { 
-        method: 'POST', 
-        body: new FormData(form)
-    })
-    .then(response => {
-        submitBtn.innerHTML = "Success! <i class='fa-solid fa-check'></i>";
-        submitBtn.style.background = "#28a745"; // تغيير اللون للأخضر عند النجاح
-        
-        alert('Account created successfully! Welcome to our marketplace.');
-        form.reset();
-        
-        // إعادة الزر لحالته الطبيعية بعد 3 ثوانٍ
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.background = "var(--main_color)";
-            window.location.href = "index.html"; // توجيه المستخدم للرئيسية
-        }, 3000);
-    })
-    .catch(error => {
-        console.error('Error!', error.message);
-        submitBtn.innerHTML = "Error! Try again";
-        submitBtn.style.background = "#dc3545";
-        submitBtn.disabled = false;
-    });
-});
+        function toggleVendorFields() {
+            const userType = document.querySelector('input[name="user_type"]:checked').value;
+            const vendorFields = document.getElementById('vendor_fields');
+            if (userType === 'vendor') {
+                vendorFields.style.display = 'block';
+            } else {
+                vendorFields.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
